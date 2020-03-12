@@ -30,3 +30,4 @@ Tie<!-- /react-text --></p><h2><!-- react-text: 272 -->随机发牌测试结果<
 <img src="result/测试4.JPG" alt="顺子">
 <img src="result/测试5.JPG" alt="高牌">
 <img src="result/测试6.JPG" alt="葫芦">
+<img src="result/测试通过.JPG" alt="测试通过">
