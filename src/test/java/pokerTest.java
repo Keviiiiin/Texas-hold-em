@@ -145,31 +145,68 @@ public class pokerTest {
     public void random_deal() {
         String [] Points = {"2","3","4","5","6","7","8","9","T","J","Q","K","A"};
         String [] Colors = {"♠","♣","♥","♦"};
+        //创建牌盒，键是编号，值是牌
+        HashMap<Integer, String> hm = new HashMap<Integer, String>();
+
+        //创建ArrayList，存储编号
+        ArrayList<Integer> array = new ArrayList<Integer>();
+
+        //从0开始往HashMap里面存储编号，并存储对应的牌。同时往ArrayList里面存储编号
+        int index = 0;
+
+        for (String number : Points) {
+            for (String color : Colors) {
+                hm.put(index, number + color );
+                array.add(index);
+                index++;
+            }
+        }
+        Collections.shuffle(array);
+
         StringBuilder blackString = new StringBuilder();
         StringBuilder whiteString = new StringBuilder();
-        Random blackRandom = new Random();
-        Random whiteRandom = new Random();
-        for (int i = 0; i < 5; i++) {
-            blackString.append(Points[blackRandom.nextInt(13)]).append(Colors[blackRandom.nextInt(4)]).append(" ");
-            whiteString.append(Points[whiteRandom.nextInt(13)]).append(Colors[whiteRandom.nextInt(4)]).append(" ");
+//        Random blackRandom = new Random();
+//        Random whiteRandom = new Random();
+        for (int i = 0; i < 10; i++) {
+            if(i%2 == 0)
+                blackString.append(hm.get(array.get(i))).append(" ");
+            else
+                whiteString.append(hm.get(array.get(i))).append(" ");
         }
 
         ArrayList<String> black = new ArrayList<>(Arrays.asList(blackString.toString().split(" ")));
         ArrayList<String> white = new ArrayList<>(Arrays.asList(whiteString.toString().split(" ")));
 
-        Collections.shuffle(black);
-        Collections.shuffle(white);
+
+        Map<Integer,ArrayList<String>> Color = new HashMap<>();
+        int [][]twoCards = new int[2][4];
+        int blackType,whiteType;
+        String []type = {"高牌","一对","两对","三条","顺子","同花","葫芦","四条","同花顺"};
+        HashMap<Integer, ArrayList<Integer>> tempMap = new HashMap<>();
+        tempMap.put(0,poker.getVirtualPoint(black));
+        tempMap.put(1,poker.getVirtualPoint(white));
+        Color.put(0,black);
+        Color.put(1,white);
+        twoCards[0] = poker.isSamePoint(tempMap.get(0));
+        twoCards[1] = poker.isSamePoint(tempMap.get(1));
+
+        int []resultType = new int[2];
+        resultType[0] = poker.judgeType(tempMap,Color,twoCards)[0];
+        resultType[1] = poker.judgeType(tempMap,Color,twoCards)[1];
+
         System.out.println("黑色方的牌是：");
         for (String s : black) {
             System.out.print(s + " ");
         }
+        System.out.print("-------" + type[resultType[0]-1]);
         System.out.println();
         System.out.println("白色方的牌是：");
         for (String s : white) {
             System.out.print(s + " ");
         }
+        System.out.print("-------" + type[resultType[1]-1]);
         System.out.println();
-        String result = poker.compare(black,white);
+        String result = poker.judgeWinner(tempMap,Color,resultType,twoCards);
         System.out.println(result);
     }
 }
