@@ -60,7 +60,7 @@ public class poker {
                 else
                     result = "Tie";
             }
-            else if(type[0] == 3 || type[0] == 7) {
+            else if(type[0] == 3) {
                 if(twoCards[0][3]>twoCards[1][3])
                     result = "Black wins";
                 else if(twoCards[0][3]<twoCards[1][3])
@@ -68,7 +68,15 @@ public class poker {
                 else
                     result = "Tie";
             }
-            else{
+            //如果都是葫芦，只需判断第三个元素的大小
+            else if(type[0] == 7){
+                if(bPoint.get(2)>wPoint.get(2))
+                    result = "Black wins";
+                else if(bPoint.get(2)<wPoint.get(2))
+                    result = "White wins";
+                else
+                    result = "Tie";
+            }            else{
                 if(bPoint.get(0)>wPoint.get(0))
                     result = "Black wins";
                 else if(bPoint.get(0)<wPoint.get(0))

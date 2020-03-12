@@ -11,6 +11,42 @@ import java.util.*;
 public class pokerTest {
     poker poker = new poker();
     @Test
+    public void test_card_type(){
+        //Given
+        //1高牌，2对子，3两对，4三条，5顺子，6同花，7葫芦，8四条，9同花顺
+        HashMap<Integer, ArrayList<String>> cardsMap = new HashMap<>();
+        Map<Integer,ArrayList<String>> Colors = new HashMap<>();
+        int [][]twoCards = new int[2][4];
+        int [] result = new int [9];
+
+        cardsMap.put(1,new ArrayList<>(Arrays.asList("2♣ J♠ T♣ K♦ A♥".split(" "))));
+        cardsMap.put(2,new ArrayList<>(Arrays.asList("Q♣ 2♠ 5♣ 9♦ 2♥".split(" "))));
+        cardsMap.put(3,new ArrayList<>(Arrays.asList("Q♣ 2♠ 2♣ 9♦ Q♥".split(" "))));
+        cardsMap.put(4,new ArrayList<>(Arrays.asList("Q♣ 2♠ Q♣ 9♦ Q♥".split(" "))));
+        cardsMap.put(5,new ArrayList<>(Arrays.asList("5♣ 2♠ 4♣ 6♦ 3♥".split(" "))));
+        cardsMap.put(6,new ArrayList<>(Arrays.asList("5♠ 7♠ 5♠ 6♠ 3♠".split(" "))));
+        cardsMap.put(7,new ArrayList<>(Arrays.asList("8♣ 8♦ 8♥ 4♠ 4♣".split(" "))));
+        cardsMap.put(8,new ArrayList<>(Arrays.asList("5♣ 2♠ 5♠ 5♦ 5♥".split(" "))));
+        cardsMap.put(9,new ArrayList<>(Arrays.asList("T♣ A♣ Q♣ J♣ K♣".split(" "))));
+        //When
+        HashMap<Integer, ArrayList<Integer>> tempMap = new HashMap<>();
+        for (int i = 1; i <= 9 ; i++) {
+            //黑色方和白色方是同一副牌
+            tempMap.put(0,poker.getVirtualPoint(cardsMap.get(i)));
+            tempMap.put(1,poker.getVirtualPoint(cardsMap.get(i)));
+            Colors.put(0,cardsMap.get(i));
+            Colors.put(1,cardsMap.get(i));
+            twoCards[0] = poker.isSamePoint(tempMap.get(0));
+            twoCards[1] = poker.isSamePoint(tempMap.get(1));
+
+            result[i-1] = poker.judgeType(tempMap,Colors,twoCards)[0];
+        }
+        //Then
+        for (int i = 0; i < 9; i++) {
+            Assert.assertEquals(i+1, result[i]);
+        }
+    }
+    @Test
     public void should_return_Tie_when_same(){
         ArrayList<String> black = new ArrayList<>(Arrays.asList("Q♣ 2♠ 2♣ 9♦ Q♥".split(" ")));
         ArrayList<String> white = new ArrayList<>(Arrays.asList("9♦ Q♣ 2♠ 2♣ Q♥".split(" ")));
