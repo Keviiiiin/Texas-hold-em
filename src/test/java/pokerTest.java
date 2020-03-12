@@ -110,18 +110,29 @@ public class pokerTest {
 
     @Test
     public void should_return_winner_when_both_TwoPair() {
-        ArrayList<String> black = new ArrayList<>(Arrays.asList("9♦ T♣ 6♦ 9♠ T♦".split(" ")));
-        ArrayList<String> white = new ArrayList<>(Arrays.asList("Q♦ T♠ T♥ Q♥ 5♥".split(" ")));
-        String result = poker.compare(black,white);
-        Assert.assertEquals("White wins",result);
+        ArrayList<String> black_1 = new ArrayList<>(Arrays.asList("9♦ T♣ 6♦ 9♠ T♦".split(" ")));
+        ArrayList<String> white_1 = new ArrayList<>(Arrays.asList("Q♦ T♠ T♥ Q♥ 5♥".split(" ")));
+
+        ArrayList<String> black_2 = new ArrayList<>(Arrays.asList("9♦ 6♣ 6♦ 9♠ T♦".split(" ")));
+        ArrayList<String> white_2 = new ArrayList<>(Arrays.asList("6♠ 7♠ 9♣ 6♥ 9♥".split(" ")));
+        String result_1 = poker.compare(black_1,white_1);
+        String result_2 = poker.compare(black_2,white_2);
+
+        Assert.assertEquals("White wins",result_1);
+        Assert.assertEquals("Black wins",result_2);
     }
 
     @Test
     public void should_return_winner_when_both_OnePair() {
         ArrayList<String> black = new ArrayList<>(Arrays.asList("9♦ T♣ J♦ 9♠ K♦".split(" ")));
         ArrayList<String> white = new ArrayList<>(Arrays.asList("8♦ A♠ 2♥ 8♥ 5♥".split(" ")));
+        ArrayList<String> black_1 = new ArrayList<>(Arrays.asList("9♦ T♣ K♦ 8♠ T♦".split(" ")));
+        ArrayList<String> white_1 = new ArrayList<>(Arrays.asList("K♦ T♠ T♥ Q♥ 5♥".split(" ")));
         String result = poker.compare(black,white);
+        String result_1 = poker.compare(black_1,white_1);
+
         Assert.assertEquals("Black wins",result);
+        Assert.assertEquals("White wins",result_1);
     }
 
     @Test

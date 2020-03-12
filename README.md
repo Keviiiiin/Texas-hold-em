@@ -22,45 +22,11 @@ Black: <!-- /react-text --><code>2H 3D 5S 9C KD</code><!-- react-text: 262 --> W
 Black wins <!-- /react-text --></p><p><!-- react-text: 266 -->输入: 
 Black: <!-- /react-text --><code>2H 3D 5S 9C KD</code><!-- react-text: 268 --> White: <!-- /react-text --><code>2D 3H 5C 9S KH</code><!-- react-text: 270 -->
 输出: 
-Tie<!-- /react-text --></p><h2><!-- react-text: 272 -->English version<!-- /react-text --></h2><p><!-- react-text: 274 -->A poker deck contains 52 cards - each card has a suit which
-is one of clubs, diamonds, hearts, or spades 
-(denoted C, D, H, and S in the input data). <!-- /react-text --></p><p><!-- react-text: 276 -->Each card also has a value which is one of 
-2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace 
-(denoted 2, 3, 4, 5, 6, 7, 8, 9, T, J, Q, K, A). <!-- /react-text --></p><p><!-- react-text: 278 -->For scoring purposes, the suits are unordered while the
-values are ordered as given above, with 2 being the lowest
-and ace the highest value.<!-- /react-text --></p><p><!-- react-text: 280 -->A poker hand consists of 5 cards dealt from the deck. Poker
-hands are ranked by the following partial order from lowest
-to highest.<!-- /react-text --></p><p><!-- react-text: 282 -->High Card: Hands which do not fit any higher category are
-ranked by the value of their highest card. If the highest
-cards have the same value, the hands are ranked by the next
-highest, and so on.<!-- /react-text --></p><p><!-- react-text: 284 -->Pair: 2 of the 5 cards in the hand have the same value. 
-Hands which both contain a pair are ranked by the value of
-the cards forming the pair. If these values are the same, 
-the hands are ranked by the values of the cards not 
-forming the pair, in decreasing order.<!-- /react-text --></p><p><!-- react-text: 286 -->Two Pairs: The hand contains 2 different pairs. Hands 
-which both contain 2 pairs are ranked by the value of 
-their highest pair. Hands with the same highest pair 
-are ranked by the value of their other pair. If these 
-values are the same the hands are ranked by the value 
-of the remaining card.<!-- /react-text --></p><p><!-- react-text: 288 -->Three of a Kind: Three of the cards in the hand have the 
-same value. Hands which both contain three of a kind are 
-ranked by the value of the 3 cards.<!-- /react-text --></p><p><!-- react-text: 290 -->Straight: Hand contains 5 cards with consecutive values. 
-Hands which both contain a straight are ranked by their 
-highest card.<!-- /react-text --></p><p><!-- react-text: 292 -->Flush: Hand contains 5 cards of the same suit. Hands which 
-are both flushes are ranked using the rules for High Card.<!-- /react-text --></p><p><!-- react-text: 294 -->Full House: 3 cards of the same value, with the remaining 2
-cards forming a pair. Ranked by the value of the 3 cards.<!-- /react-text --></p><p><!-- react-text: 296 -->Four of a kind: 4 cards with the same value. Ranked by the
-value of the 4 cards.<!-- /react-text --></p><p><!-- react-text: 298 -->Straight flush: 5 cards of the same suit with consecutive
-values. Ranked by the highest card in the hand.<!-- /react-text --></p><p><!-- react-text: 300 -->Your job is to rank pairs of poker hands and to indicate
-which, if either, has a higher rank.<!-- /react-text --></p><p><!-- react-text: 302 -->Examples:<!-- /react-text --></p><p><!-- react-text: 304 -->Input: 
-Black: <!-- /react-text --><code>2H 3D 5S 9C KD</code><!-- react-text: 306 --> White: <!-- /react-text --><code>2C 3H 4S 8C AH</code><!-- react-text: 308 -->
-Output: 
-White wins - high card: Ace <!-- /react-text --></p><p><!-- react-text: 310 -->Input: 
-Black: <!-- /react-text --><code>2H 4S 4C 2D 4H</code><!-- react-text: 312 --> White: <!-- /react-text --><code>2S 8S AS QS 3S</code><!-- react-text: 314 -->
-Output: 
-Black wins - full house<!-- /react-text --></p><p><!-- react-text: 316 -->Input: 
-Black: <!-- /react-text --><code>2H 3D 5S 9C KD</code><!-- react-text: 318 --> White: <!-- /react-text --><code>2C 3H 4S 8C KH</code><!-- react-text: 320 -->
-Output: 
-Black wins - high card: 9<!-- /react-text --></p><p><!-- react-text: 322 -->Input: 
-Black: <!-- /react-text --><code>2H 3D 5S 9C KD</code><!-- react-text: 324 --> White: <!-- /react-text --><code>2D 3H 5C 9S KH</code><!-- react-text: 326 -->
-Output: 
-Tie<!-- /react-text --></p></div></div><div class="margin-t-2"><!-- react-text: 60 --><!-- /react-text --></div></div>
+Tie<!-- /react-text --></p><h2><!-- react-text: 272 -->随机发牌测试结果<!-- /react-text --></h2><p><!-- react-text: 274 -->
+<img src="./result/测试0.JPG" alt="同为一对">
+<img src="result/测试1.JPG" alt="两对">
+<img src="result/测试2.JPG" alt="同为一对2">
+<img src="result/测试3.JPG" alt="三条">
+<img src="result/测试4.JPG" alt="顺子">
+<img src="result/测试5.JPG" alt="高牌">
+<img src="result/测试6.JPG" alt="葫芦">
