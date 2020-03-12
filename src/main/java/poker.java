@@ -38,6 +38,7 @@ public class poker {
         else if(type[0] < type[1])
             result = "White wins";
         else {
+            //1高牌，2对子，3两对，4三条，5顺子，6同花，7葫芦，8四条，9同花顺
             if(type[0] == 1 || type[0] == 6) {
                 for (int i = 4; i >= 0; i--) {
                     if(bPoint.get(i)>wPoint.get(i)) {

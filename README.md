@@ -63,4 +63,4 @@ Output:
 Black wins - high card: 9<!-- /react-text --></p><p><!-- react-text: 322 -->Input: 
 Black: <!-- /react-text --><code>2H 3D 5S 9C KD</code><!-- react-text: 324 --> White: <!-- /react-text --><code>2D 3H 5C 9S KH</code><!-- react-text: 326 -->
 Output: 
-Tie<!-- /react-text --></p></div></div><div class="margin-t-2"><a><span>题目有错误 ?</span></a><!-- react-text: 60 --><!-- /react-text --></div></div>
+Tie<!-- /react-text --></p></div></div><div class="margin-t-2"><!-- react-text: 60 --><!-- /react-text --></div></div>

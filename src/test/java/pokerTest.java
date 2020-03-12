@@ -139,4 +139,37 @@ public class pokerTest {
         String result = poker.compare(black,white);
         Assert.assertEquals("White wins",result);
     }
+
+    //随机发牌测试
+    @Test
+    public void random_deal() {
+        String [] Points = {"2","3","4","5","6","7","8","9","T","J","Q","K","A"};
+        String [] Colors = {"♠","♣","♥","♦"};
+        StringBuilder blackString = new StringBuilder();
+        StringBuilder whiteString = new StringBuilder();
+        Random blackRandom = new Random();
+        Random whiteRandom = new Random();
+        for (int i = 0; i < 5; i++) {
+            blackString.append(Points[blackRandom.nextInt(13)]).append(Colors[blackRandom.nextInt(4)]).append(" ");
+            whiteString.append(Points[whiteRandom.nextInt(13)]).append(Colors[whiteRandom.nextInt(4)]).append(" ");
+        }
+
+        ArrayList<String> black = new ArrayList<>(Arrays.asList(blackString.toString().split(" ")));
+        ArrayList<String> white = new ArrayList<>(Arrays.asList(whiteString.toString().split(" ")));
+
+        Collections.shuffle(black);
+        Collections.shuffle(white);
+        System.out.println("黑色方的牌是：");
+        for (String s : black) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+        System.out.println("白色方的牌是：");
+        for (String s : white) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+        String result = poker.compare(black,white);
+        System.out.println(result);
+    }
 }
